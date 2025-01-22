@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, User, Briefcase, Mail, Menu, X, ChevronRight } from "lucide-react"
+import { Home, User, Briefcase, Mail, Menu, X } from "lucide-react"
 
 const Navbar2 = () => {
   const [isOpen, setIsOpen] = useState(false)

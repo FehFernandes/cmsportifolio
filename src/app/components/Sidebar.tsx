@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useDesign } from "./contexts/DesignContext"
-import { ChevronDown, X, Menu, Settings } from "lucide-react"
+import { ChevronDown, X, Settings } from "lucide-react"
 
 type NavbarOption = "default" | "navbar1" | "navbar2"
 type HeroOption = "default" | "hero1" | "hero2"

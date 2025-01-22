@@ -12,7 +12,7 @@ import Projects1 from "./components/Projects1"
 import Projects2 from "./components/Projects2"
 import Footer1 from "./components/Footer1"
 import Footer2 from "./components/Footer2"
-import SidebarProvider from "./components/SidebarProvider"
+
 
 export default function Home() {
   const { currentNavbar, currentHero, currentSkills, currentProjects, currentFooter } = useDesign()
