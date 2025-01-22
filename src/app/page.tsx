@@ -38,7 +38,7 @@ export default function Home() {
             <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
               <h1 className="text-3xl font-bold text-gray-800 mb-4">Bem-vindo ao Your Portfolio Builder</h1>
               <p className="text-gray-600">
-              Escolha designs para navbar, hero, skills, projects e footer seções na barra lateral para começar.
+              Escolha designs para navbar, hero, skills, projects e footer. No icon lateral para começar.
               </p>
             </div>
           )}
