@@ -40,7 +40,15 @@ const Sidebar = () => {
   const closeSidebar = () => setIsOpen(false);
   const toggleMinimize = () => setIsMinimized(!isMinimized);
 
-  const sectionOptions = [
+  const sectionOptions: {
+    id: string;
+    title: string;
+    description: string;
+    current: any; // Ou use o tipo correto genérico, como `NavbarOption`.
+    options: SectionOption<any>[]; // Substitua `any` pelo tipo genérico correspondente.
+    setter: (value: any) => void; // Substitua `any` pelo tipo genérico correspondente.
+  }[] = [
+
     {
       id: "navbar",
       title: "Navigation",
@@ -213,7 +221,8 @@ const Sidebar = () => {
                         <button
                           key={option.value}
                           // @typescript-eslint/no-explicit-any
-                          onClick={() => section.setter(option.value)}
+                          onClick={() => section.setter(option.value as typeof section.current)}
+
                           className={`w-full p-3 rounded-lg text-left transition-all
                                     ${
                                       section.current === option.value
