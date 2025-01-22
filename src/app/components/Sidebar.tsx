@@ -212,7 +212,8 @@ const Sidebar = () => {
                       {section.options.map((option) => (
                         <button
                           key={option.value}
-                          onClick={() => section.setter(option.value as any)}
+                          // @typescript-eslint/no-explicit-any
+                          onClick={() => section.setter(option.value)}
                           className={`w-full p-3 rounded-lg text-left transition-all
                                     ${
                                       section.current === option.value
