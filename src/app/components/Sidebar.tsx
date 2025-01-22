@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { useDesign } from "./contexts/DesignContext"
-import { ChevronDown, X, Settings } from "lucide-react"
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useDesign } from "./contexts/DesignContext";
+import { ChevronDown, X, Settings } from "lucide-react";
 
-type NavbarOption = "default" | "navbar1" | "navbar2"
-type HeroOption = "default" | "hero1" | "hero2"
-type SkillsOption = "default" | "skills1" | "skills2"
-type ProjectsOption = "default" | "projects1" | "projects2"
-type FooterOption = "default" | "footer1" | "footer2"
+type NavbarOption = "default" | "navbar1" | "navbar2";
+type HeroOption = "default" | "hero1" | "hero2";
+type SkillsOption = "default" | "skills1" | "skills2";
+type ProjectsOption = "default" | "projects1" | "projects2";
+type FooterOption = "default" | "footer1" | "footer2";
 
 type SectionOption<T> = {
-  name: string
-  value: T
-  preview: string
-}
+  name: string;
+  value: T;
+  preview: string;
+};
 
 const Sidebar = () => {
   const {
@@ -29,16 +29,16 @@ const Sidebar = () => {
     currentSkills,
     currentProjects,
     currentFooter,
-  } = useDesign()
+  } = useDesign();
 
-  const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("")
-  const [isMinimized, setIsMinimized] = useState(false)
-  const sidebarRef = useRef<HTMLDivElement>(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const [isMinimized, setIsMinimized] = useState(false);
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
-  const toggleSidebar = () => setIsOpen(!isOpen)
-  const closeSidebar = () => setIsOpen(false)
-  const toggleMinimize = () => setIsMinimized(!isMinimized)
+  const toggleSidebar = () => setIsOpen(!isOpen);
+  const closeSidebar = () => setIsOpen(false);
+  const toggleMinimize = () => setIsMinimized(!isMinimized);
 
   const sectionOptions = [
     {
@@ -48,7 +48,11 @@ const Sidebar = () => {
       current: currentNavbar,
       options: [
         { name: "Vazio", value: "default", preview: "Sem estilo" },
-        { name: "Modern", value: "navbar1", preview: "Transparente arredondado" },
+        {
+          name: "Modern",
+          value: "navbar1",
+          preview: "Transparente arredondado",
+        },
         { name: "Green", value: "navbar2", preview: "Verde moderno" },
       ] as SectionOption<NavbarOption>[],
       setter: setCurrentNavbar as (value: NavbarOption) => void,
@@ -60,8 +64,16 @@ const Sidebar = () => {
       current: currentHero,
       options: [
         { name: "Vazio", value: "default", preview: "Sem estilo" },
-        { name: "Split", value: "hero1", preview: "Quadrados moderno parallax" },
-        { name: "Dynamic", value: "hero2", preview: "Circulo animado com pulse" },
+        {
+          name: "Split",
+          value: "hero1",
+          preview: "Quadrados moderno parallax",
+        },
+        {
+          name: "Dynamic",
+          value: "hero2",
+          preview: "Circulo animado com pulse",
+        },
       ] as SectionOption<HeroOption>[],
       setter: setCurrentHero as (value: HeroOption) => void,
     },
@@ -101,23 +113,26 @@ const Sidebar = () => {
       ] as SectionOption<FooterOption>[],
       setter: setCurrentFooter as (value: FooterOption) => void,
     },
-  ]
+  ];
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
       }
-    }
+    };
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const sidebarVariants = {
     open: { x: 0 },
     closed: { x: isMinimized ? "-90%" : "-100%" },
-  }
+  };
 
   return (
     <>
@@ -144,7 +159,9 @@ const Sidebar = () => {
       >
         <div className={`w-80 flex flex-col ${isMinimized ? "hidden" : ""}`}>
           <div className="p-6 border-b dark:border-gray-700 relative flex justify-between items-center">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Design Your Page</h2>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+              Design Your Page
+            </h2>
             <button
               onClick={closeSidebar}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
@@ -155,18 +172,31 @@ const Sidebar = () => {
 
           <div className="overflow-y-auto flex-grow">
             {sectionOptions.map((section) => (
-              <div key={section.id} className="p-4 border-b dark:border-gray-700">
+              <div
+                key={section.id}
+                className="p-4 border-b dark:border-gray-700"
+              >
                 <button
-                  onClick={() => setActiveSection(activeSection === section.id ? "" : section.id)}
+                  onClick={() =>
+                    setActiveSection(
+                      activeSection === section.id ? "" : section.id
+                    )
+                  }
                   className="flex justify-between items-center w-full"
                 >
                   <div className="text-left">
-                    <h3 className="font-medium text-gray-800 dark:text-white">{section.title}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{section.description}</p>
+                    <h3 className="font-medium text-gray-800 dark:text-white">
+                      {section.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {section.description}
+                    </p>
                   </div>
                   <ChevronDown
                     className={`w-5 h-5 text-gray-500 transition-transform duration-200
-                              ${activeSection === section.id ? "rotate-180" : ""}`}
+                              ${
+                                activeSection === section.id ? "rotate-180" : ""
+                              }`}
                   />
                 </button>
 
@@ -182,7 +212,7 @@ const Sidebar = () => {
                       {section.options.map((option) => (
                         <button
                           key={option.value}
-                          onClick={() => section.setter(option.value)}
+                          onClick={() => section.setter(option.value as any)}
                           className={`w-full p-3 rounded-lg text-left transition-all
                                     ${
                                       section.current === option.value
@@ -206,7 +236,9 @@ const Sidebar = () => {
                               </span>
                             )}
                           </div>
-                          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{option.preview}</p>
+                          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                            {option.preview}
+                          </p>
                         </button>
                       ))}
                     </motion.div>
@@ -223,7 +255,9 @@ const Sidebar = () => {
             className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
           >
             <ChevronDown
-              className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${isMinimized ? "-rotate-90" : "rotate-90"}`}
+              className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
+                isMinimized ? "-rotate-90" : "rotate-90"
+              }`}
             />
           </button>
           <button
@@ -245,8 +279,7 @@ const Sidebar = () => {
         <Settings className="w-6 h-6" />
       </button>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
-
+export default Sidebar;
