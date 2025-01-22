@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { motion, useAnimation, useMotionValue, useTransform } from "framer-motion"
+import { motion, useMotionValue, useTransform } from "framer-motion"
 import retrato from "./retrato.png"
 
 const Hero2 = () => {
@@ -10,7 +10,6 @@ const Hero2 = () => {
   const [isHovering, setIsHovering] = useState(false)
   const cursorX = useMotionValue(0)
   const cursorY = useMotionValue(0)
-  const controls = useAnimation()
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
