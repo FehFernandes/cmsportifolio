@@ -44,9 +44,9 @@ const Sidebar = () => {
     id: string;
     title: string;
     description: string;
-    current: any; // Ou use o tipo correto genérico, como `NavbarOption`.
-    options: SectionOption<any>[]; // Substitua `any` pelo tipo genérico correspondente.
-    setter: (value: any) => void; // Substitua `any` pelo tipo genérico correspondente.
+    current: any; 
+    options: SectionOption<any>[]; 
+    setter: (value: any) => void; 
   }[] = [
 
     {

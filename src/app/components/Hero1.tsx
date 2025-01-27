@@ -20,7 +20,7 @@ const Hero1 = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0F172A]">
-      {/* Animated background elements */}
+      
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-[500px] h-[500px] top-[-250px] left-[-250px] bg-purple-500/30 rounded-full blur-3xl" 
              style={{ transform: `translate(${scrollY * 0.3}px, ${scrollY * 0.2}px)` }} />
@@ -28,7 +28,6 @@ const Hero1 = () => {
              style={{ transform: `translate(${-scrollY * 0.3}px, ${-scrollY * 0.2}px)` }} />
       </div>
 
-      {/* Grid pattern overlay */}
       <div className="absolute inset-0" 
            style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)",
                     backgroundSize: "50px 50px" }} />
